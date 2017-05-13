@@ -27,4 +27,16 @@ describe "Kaladesh" do
        "Verdurous Gearhulk",            # 4
        "Aetherworks Marvel"             # nil
   end
+
+  it "sort:rarity" do
+    assert_search_results_ordered "cmc=5 t:artifact sort:rarity",
+      "Cataclysmic Gearhulk",           # mythic
+      "Skysovereign, Consul Flagship",  # mythic
+      "Verdurous Gearhulk",             # mythic
+      "Multiform Wonder",               # rare
+      "Ballista Charger",               # uncommon
+      "Aradara Express",                # common
+      "Bastion Mastodon",               # common
+      "Self-Assembler"                  # common
+  end
 end
