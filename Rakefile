@@ -26,37 +26,16 @@ task "index" do
   sh "./indexer/bin/indexer"
 end
 
-desc "Fetch new mtgjson database"
-task "mtgjson:fetch" do
-  sh "indexer/bin/split_mtgjson", "http://mtgjson.com/json/AllSets-x.json"
-end
 
-desc "Fetch new mtgjson database, then revert known bad ones"
-task "mtgjson:fetch:good" do
-  sh "indexer/bin/split_mtgjson", "http://mtgjson.com/json/AllSets-x.json"
-  # Unsets and Kamigawa block are broken, mostly flip/split cards
-  # CP2 has long uncorrected typo
-  # V17 has duplicate Brisela
-  sh "git checkout data/sets/{UGL,UNH,UST,BOK,V17,CP2}.json"
-end
-
-desc "Fetch new mtgjson database and update index"
-task "mtgjson:update" => ["mtgjson:fetch:good", "index"]
-
-desc "Update penny dreadful banlist"
-task "pennydreadful:update" do
-  system "wget -q http://pdmtgo.com/legal_cards.txt -O index/penny_dreadful_legal_cards.txt"
-end
-
-desc "Fetch Gatherer pics"
-task "pics:gatherer" do
+desc "Fetch MSEM pics"
+task "pics:MSEM" do
   pics = Pathname("frontend/public/cards")
   db.printings.each do |c|
     next unless c.multiverseid
-    path = pics + Pathname("#{c.set_code}/#{c.number}.png")
+    path = pics + Pathname("#{c.set_code}/#{c.number}.jpg")
     path.parent.mkpath
     next if path.exist?
-    url = "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=#{c.multiverseid}&type=card"
+    url = "http://mse-modern.com/MSEM2/Images/"
     puts "Downloading #{c.name} #{c.set_code} #{c.multiverseid}"
     system "wget", "-nv", "-nc", url, "-O", path.to_s
   end
