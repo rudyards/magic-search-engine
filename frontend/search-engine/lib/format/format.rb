@@ -24,7 +24,7 @@ class Format
 
   def in_format?(card)
     card.printings.each do |printing|
-      next if @time and printing.release_date > @time
+      # next if @time and printing.release_date > @time
       if @included_sets
         next unless @included_sets.include?(printing.set_code)
       else

@@ -10,7 +10,7 @@ class DeckDatabase
     [count, PhysicalCard.for(printing, !!foil)]
   end
 
-  def load!(path=Pathname("#{__dir__}/../../index/deck_index.json"))
+  def load!(path=Pathname("#{__dir__}/../index/deck_index.json"))
     JSON.parse(path.read).each do |deck|
       set_code = deck["set_code"]
       set = @db.sets[set_code] or raise "Set not found #{set_code}"

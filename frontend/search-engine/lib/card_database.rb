@@ -151,7 +151,7 @@ class CardDatabase
   class <<self
     private :new
 
-    def load(path=Pathname("#{__dir__}/../../index/index.json"))
+    def load(path=Pathname("#{__dir__}/../index/index.json"))
       # puts "Initialize #{path}"
       new do |db|
         db.send(:load_from_json!, Pathname(path))
