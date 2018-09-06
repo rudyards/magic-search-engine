@@ -23,7 +23,7 @@ class CardPrinting
     @flavor = data["flavor"] || -""
     @flavor_normalized = @flavor.tr("Äàáâäèéêíõöúûü’\u2212", "Aaaaaeeeioouuu'-")
     @flavor_normalized = @flavor if @flavor_normalized == @flavor # Memory saving trick
-    @foiling = data["foiling"]
+    # @foiling = data["foiling"]
     @border = data["border"] || @set.border
     @frame = data["frame"] || @set.frame
     @timeshifted = data["timeshifted"] || false
@@ -38,23 +38,23 @@ class CardPrinting
   end
 
   # "foilonly", "nonfoil", "both"
-  def foiling
-    return @foiling if @foiling
-    case @set.foiling
-    when "nonfoil", "foilonly", "both"
-      @set.foiling
-    when "booster_both"
-      if in_boosters?
-        "both"
-      else
-        foiling_in_precons
-      end
-    when "precon"
-      foiling_in_precons
-    else
-      "#{@set.foiling} -> totally_unknown"
-    end
-  end
+  # def foiling
+  #   return @foiling if @foiling
+  #   case @set.foiling
+  #   when "nonfoil", "foilonly", "both"
+  #     @set.foiling
+  #   when "booster_both"
+  #     if in_boosters?
+  #       "both"
+  #     else
+  #       foiling_in_precons
+  #     end
+  #   when "precon"
+  #     foiling_in_precons
+  #   else
+  #     "#{@set.foiling} -> totally_unknown"
+  #   end
+  # end
 
   # TODO: This could seriously move to indexer once deck index and primary index are merged
   private def foiling_in_precons

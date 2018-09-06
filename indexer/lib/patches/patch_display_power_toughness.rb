@@ -2,8 +2,20 @@ class PatchDisplayPowerToughness < Patch
   def call
     each_printing do |card|
       next unless card["power"]
-      power = card["power"]
-      toughness = card["toughness"]
+      i = card["power"].to_s.index("★")
+      if i
+        power = card["power"]
+        power[i] = "*"
+      else
+        power = (card["power"].to_s)
+      end
+      i = card["toughness"].to_s.index("★")
+      if i
+        toughness = card["toughness"]
+        toughness[i] = "*"
+      else
+        toughness = (card["toughness"].to_s)        
+      end
       augment = (card["text"] || "").include?("Augment {")
       card["power"] = format_powtou(power)
       card["toughness"] = format_powtou(toughness)
@@ -39,6 +51,9 @@ class PatchDisplayPowerToughness < Patch
       "*²"
     when /\*/, "∞", "?"
       value
+    when ""
+      "-
+      "
     else
       raise "Not sure what to do with #{value.inspect}"
     end

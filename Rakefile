@@ -35,8 +35,12 @@ task "pics:MSEM" do
     path = pics + Pathname("#{c.set_code}/#{c.number}.jpg")
     path.parent.mkpath
     next if path.exist?
-    url = "http://mse-modern.com/MSEM2/Images/"
+    url = "http://mse-modern.com/msem2/images/#{c.set_code}/#{c.number}.jpg"
     puts "Downloading #{c.name} #{c.set_code} #{c.multiverseid}"
+    puts "   from #{url.to_s}"
+    puts "   to #{path.to_s}"
+    command = "wget -nv -nc #{url} -O #{path}"
+    #puts "   command: #{command}"
     system "wget", "-nv", "-nc", url, "-O", path.to_s
   end
 end

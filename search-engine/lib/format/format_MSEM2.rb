@@ -1,4 +1,7 @@
 class FormatMSEM2 < Format
+
+  logger.info("Format MSEM2 loading")
+
   def format_pretty_name
     "MSEM2"
   end
@@ -6,10 +9,10 @@ class FormatMSEM2 < Format
   def build_included_sets
     Set[
       "afm", "kzd", "awk",
-      "toj", "imp", #"psa",
+      "toj", "imp", "psa",
       "pfp", "twr", 
       "gnj", "sur",
-      "oph", #"orp",
+      "oph", "orp",
       "cac",
       "dya",
       "hi12",

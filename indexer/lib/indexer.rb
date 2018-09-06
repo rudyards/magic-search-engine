@@ -5,8 +5,8 @@ require "pathname"
 require "pathname-glob"
 require_relative "core_ext"
 require_relative "card_sets_data"
-
 require_relative "patches/patch"
+
 Dir["#{__dir__}/patches/*.rb"].each do |path| require_relative path end
 
 class Indexer
@@ -72,7 +72,7 @@ class Indexer
       "border",
       "code",
       "custom",
-      "foiling",
+      # "foiling",
       "frame",
       "gatherer_code",
       "has_boosters",
@@ -112,9 +112,7 @@ class Indexer
       PatchExcludeFromBoosters,
       PatchFunny,
       PatchLinkRelated,
-      PatchPrintSheets,
       PatchFrame,
-      PatchFoiling,
 
       # Reconcile issues
       PatchReconcileForeignNames,
@@ -127,7 +125,6 @@ class Indexer
       PatchCmc,
       PatchNissa,
       PatchMediaInsertArtists,
-      PatchCstdRarity,
       PatchWatermarks,
       PatchConspiracyWatermarks,
       PatchBasicLandRarity,
@@ -143,7 +140,6 @@ class Indexer
       PatchBfm,
       PatchUrza,
       PatchFixPromoPrintDates,
-      PatchMeldCardNames,
     ]
   end
 
@@ -229,7 +225,7 @@ class Indexer
           "border",
           "exclude_from_boosters",
           "flavor",
-          "foiling",
+          # "foiling",
           "frame",
           "multiverseid",
           "number",

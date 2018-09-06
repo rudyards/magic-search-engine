@@ -64,7 +64,7 @@ class Format
       # Removed spaces so you can say "lw block" lw-block lwblock lw_block or whatever
       {
         "msem2"                      => FormatMSEM2,
-        "MSEDH"                      => FormatMSEDH,
+        "msedh"                      => FormatMSEDH
       }
     end
 
@@ -79,4 +79,4 @@ class Format
   end
 end
 
-#Dir["#{__dir__}/format_*.rb"].each do |path| require_relative path end
+Dir["#{__dir__}/format_*.rb"].each do |path| require_relative path end
