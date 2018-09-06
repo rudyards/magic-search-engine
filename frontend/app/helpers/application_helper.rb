@@ -133,8 +133,8 @@ module ApplicationHelper
   end
 
   def self.card_picture_path(card)
-    url_hq = "/cards_hq/#{card.set_code}/#{card.number}.png"
-    url_lq = "/cards/#{card.set_code}/#{card.number}.png"
+    url_hq = "/cards_hq/#{card.set_code}/#{card.number}.jpg"
+    url_lq = "/cards/#{card.set_code}/#{card.number}.jpg"
     path_hq = Pathname(__dir__) + "../../public#{url_hq}"
     path_lq = Pathname(__dir__) + "../../public#{url_lq}"
     return url_hq if path_hq.exist?

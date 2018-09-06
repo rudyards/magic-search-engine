@@ -1,6 +1,6 @@
-class FormatMSEM2 < Format
+# This is loaded manually in format.rb, go there to tell it to load more formats or change the order.
 
-  logger.info("Format MSEM2 loading")
+class FormatMSEM2 < Format
 
   def format_pretty_name
     "MSEM2"
