@@ -79,4 +79,4 @@ class Format
   end
 end
 
-Dir["#{__dir__}/format_*.rb"].each do |path| require_relative path end
+# Dir["#{__dir__}/format_*.rb"].each do |path| require_relative path end
