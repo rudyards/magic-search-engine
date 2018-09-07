@@ -35,7 +35,7 @@ db.sets.each do |set_code, set|
     end
 
     nth_card[card.name] += 1
-    target_path = Pathname("frontend/public/cards_hq/#{card.set_code}/#{card.number}.png")
+    target_path = Pathname("frontend/public/#{card.set_code}/#{card.number}.jpg")
     next if target_path.exist?
 
     clean_name = card.name.tr("®", "r").tr(':"?', "")
@@ -68,7 +68,7 @@ db.sets.each do |set_code, set|
       FileUtils.cp((source_dir+match), target_path)
     else
       total["miss"] += 1
-      has_lq = Pathname("frontend/public/cards/#{card.set_code}/#{card.number}.png").exist?
+      has_lq = Pathname("frontend/public/cards/#{card.set_code}/#{card.number}.jpg").exist?
       if has_lq
         warn "LQ only: #{card.set.official_code} - #{card.name}"
       else

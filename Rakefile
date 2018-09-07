@@ -3,7 +3,7 @@ require "fileutils"
 
 def db
   @db ||= begin
-    require_relative "search-engine/lib/card_database"
+    require_relative "frontend/search-engine/lib/card_database"
     CardDatabase.load
   end
 end
@@ -32,10 +32,15 @@ task "pics:MSEM" do
   pics = Pathname("frontend/public/cards")
   db.printings.each do |c|
     next unless c.multiverseid
-    path = pics + Pathname("#{c.set_code}/#{c.number}.jpg")
+    if c.layout == "split"
+      tempNumber = c.number.gsub(/[ab]/, "")
+    else
+      tempNumber = c.number
+    end
+    path = pics + Pathname("#{c.set_code}/#{tempNumber}.jpg")
     path.parent.mkpath
     next if path.exist?
-    url = "http://mse-modern.com/msem2/images/#{c.set_code}/#{c.number}.jpg"
+    url = "http://mse-modern.com/msem2/images/#{c.set_code}/#{tempNumber}.jpg"
     puts "Downloading #{c.name} #{c.set_code} #{c.multiverseid}"
     puts "   from #{url.to_s}"
     puts "   to #{path.to_s}"

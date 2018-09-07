@@ -5,11 +5,11 @@ require_relative "../search-engine/lib/card_database"
 
 class CardPrinting
   def path_lq
-    Pathname("frontend/public/cards/#{set_code}/#{number}.png")
+    Pathname("frontend/public/cards/#{set_code}/#{number}.jpg")
   end
 
   def path_hq
-    Pathname("frontend/public/cards_hq/#{set_code}/#{number}.png")
+    Pathname("frontend/public/cards_hq/#{set_code}/#{number}.jpg")
   end
 end
 
@@ -35,13 +35,13 @@ class PrintPicsStatistics
 
   def unconnected_lq
     @unconnected_lq ||= begin
-      Pathname("frontend/public/cards").glob("*/*.png") - db.printings.map(&:path_lq)
+      Pathname("frontend/public/cards").glob("*/*.jpg") - db.printings.map(&:path_lq)
     end
   end
 
   def unconnected_hq
     @unconnected_hq ||= begin
-      Pathname("frontend/public/cards_hq").glob("*/*.png") - db.printings.map(&:path_hq)
+      Pathname("frontend/public/cards_hq").glob("*/*.jpg") - db.printings.map(&:path_hq)
     end
   end
 
