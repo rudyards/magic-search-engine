@@ -1,35 +1,29 @@
 .row
   .col-12
-    %h3 Contact
+    %h3 Credits
 
+    
+      
     %div
-      Site by Tomasz Wegrzanowski (taw).
-      You can contact me by
-      = succeed "," do
-        %a{href: "mailto:Tomasz.Wegrzanowski@gmail.com"} email
-      = succeed "," do
-        %a{href: "http://twitter.com/t_a_w"} twitter
-      or by my account on basically every social site imaginable.
-
-    %div
-      I invite you to check out my
-      %a{href: "http://t-a-w.blogspot.com/"}
-        blog
-      and
-      %a{href: "https://www.youtube.com/channel/UCDlHQYTFt5yXxWXwJ8QlhlQ"}
-        youtube channel
-      but they're more about programming and video games than Magic: the Gathering.
-
-    %div
-      Special thanks to Anthony Low for help with testing and to
-      %a{href: "http://mtgjson.com/"} mtgjson
-      for primary source of data used.
-
-    %div
-      Code is all on
+      Changed to specifications and made significant contributions to the code base to make it a white label web app: Rudy Summers, contactable 
       = succeed "." do
-        %a{href: "https://github.com/taw/magic-search-engine"} github
-      If you want API access I'd recommend getting code from there instead of hammering the poor servers.
+        %a{href: "mailto:summersrudy@gmail.com"} via email
+    %div
+      Bug fixing and setup assistance: CyberChronometer, contactable 
+      = succeed "." do
+        %a{href:"mailto:geek@geekanddad.com"} via email
 
     %div
-      Card text and pictures are all copyright Wizards of the Coast.
+    %br
+      MSEM2 is intended for playing with custom cards only, and is not used to create nor distribute counterfeits of real items produced by Wizards of the Coast, Konami, or other companies. No custom card attempts to pass itself off as a real Magic the Gathering card.
+
+    %div
+    %br
+      Based on mtg.wtf,
+      = succeed "" do
+        %a{href: "https://github.com/taw/magic-search-engine"} located on github,
+      which was created by Tomasz Wegrzanowski (taw). He's contactable via
+      = succeed " or" do
+        %a{href: "mailto:Tomasz.Wegrzanowski@gmail.com"} email 
+      = succeed "" do
+        %a{href: "http://twitter.com/t_a_w"} twitter

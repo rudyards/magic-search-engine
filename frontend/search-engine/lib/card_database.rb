@@ -226,10 +226,13 @@ class CardDatabase
     end
     data["cards"].each do |card_name, card_data|
       next if card_data["layout"] == "token" # Do not include tokens
+      # puts("load_from_json!: card: #{card_name}")
       normalized_name = card_name.downcase.tr("Äàáâäèéêíõöúûü", "Aaaaaeeeioouuu")
       card = @cards[normalized_name] = Card.new(card_data.reject{|k,_| k == "printings"})
       color_identity_cache[card_name] = card.partial_color_identity
+      # puts("        card_data[\"names\"]=#{card_data["names"]}")
       if card_data["names"]
+        puts("        multipart card found: #{card_data["names"]}")
         multipart_cards[card_name] = card_data["names"] - [card_name]
       end
       card_data["printings"].each do |set_code, printing_data|
@@ -274,15 +277,19 @@ class CardDatabase
   end
 
   def link_multipart_cards!(multipart_cards)
+    puts(" card_database: link_multipart_cards: multipart_cards=#{multipart_cards}")
     multipart_cards.each do |card_name, other_names|
       card = @cards[card_name.downcase]
       other_cards = other_names.map{|name| @cards[name.downcase] }
+      puts(" card_database: other_cards=#{other_cards}")
       card.printings.each do |printing|
         printing.others = other_cards.map do |other_card|
+          puts "Looking for other cards #{printing} || #{other_card.printings}"
           from_same_set = other_card.printings.select{|other_printing| other_printing.set_code == printing.set_code}
           unless from_same_set.size == 1
             raise "Can't link other side - #{card_name}"
           end
+          puts "#{from_same_set}"
           from_same_set[0]
         end
       end

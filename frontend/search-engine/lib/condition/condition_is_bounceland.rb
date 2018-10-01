@@ -1,16 +1,16 @@
 class ConditionIsBounceland < Condition
   def search(db)
     names = [
-      "azorius chancery",
-      "boros garrison",
-      "dimir aqueduct",
-      "golgari rot farm",
-      "gruul turf",
-      "izzet boilerworks",
-      "orzhov basilica",
-      "rakdos carnarium",
-      "selesnya sanctuary",
-      "simic growth chamber",
+      "Sprawling Coast",
+      "Shaded Cove",
+      "Scorched Sanctum",
+      "Distant Highlands",
+      "Suntouched Temple",
+      "Boundless Sinks",
+      "Crystal Coasts",
+      "Lonely Morass",
+      "Endless Deserts",
+      "Unexplored Ruins",
     ]
 
     names

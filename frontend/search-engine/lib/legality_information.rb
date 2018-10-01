@@ -12,7 +12,7 @@ class LegalityInformation
   end
 
   def legal_everywhere?
-    @result.values.all?
+    @result.values.all? {|x| x == "legal"}
   end
 
   def legal_nowhere?

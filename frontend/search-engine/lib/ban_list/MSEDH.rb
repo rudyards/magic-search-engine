@@ -1,4 +1,4 @@
-BanList.for_format("MSEDH") do
+BanList.for_format("msedh") do
   format_start(
     nil,
     "Citadel of Denial" => "banned",

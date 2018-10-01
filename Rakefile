@@ -23,7 +23,7 @@ end
 
 desc "Generate index"
 task "index" do
-  sh "./indexer/bin/indexer"
+  sh "./frontend/search-engine/indexer/bin/indexer"
 end
 
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
-  <ShortName>mtg.wtf</ShortName>
-  <Description>WTF is that Magic: the Gathering card</Description>
+  <ShortName>MSEM Instigator</ShortName>
+  <Description>Instigator is a search engine for the Magic Set Editor Modern format</Description>
   <Tags>mtg</Tags>
-  <Contact>Tomasz.Wegrzanowski@gmail.com</Contact>
-  <Url type="text/html" template="http://mtg.wtf/card?q={searchTerms}"/>
+  <Contact>summersrudy@gmail.com</Contact>
+  <Url type="text/html" template="http://msem-instigator.herokuapp.com/card?q={searchTerms}"/>
 </OpenSearchDescription>

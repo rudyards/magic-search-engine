@@ -105,7 +105,7 @@ describe Deck do
   let(:deck_export) do
     <<~EOF
     // NAME: Wrath of the Mortals - Journey into Nyx Event Deck
-    // URL: http://mtg.wtf/deck/jou/wrath-of-the-mortals
+    // URL: http://msem-instigator.herokuapp.com/deck/jou/wrath-of-the-mortals
     1 Battlefield Thaumaturge
     3 Young Pyromancer
     3 Guttersnipe

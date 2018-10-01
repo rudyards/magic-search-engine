@@ -36,20 +36,5 @@
             = ruling["date"]
             = format_oracle_text(ruling["text"])
 
-    %h5 Links
-    %ul
-      - if card.gatherer_link.present?
-        %li.infolabel
-          %a{href: card.gatherer_link}
-            Gatherer
   .col-6
     = render 'printings_full', card: card, printings: printings_view_full(card, printings)
-
-    - if card.foreign_names
-      %h5 Foreign names
-      %ul.foreign_names
-        - card.foreign_names.sort.each do |language_code, foreign_names|
-          - foreign_names.each do |foreign_name|
-            %li
-              %i{class: "famfamfam-flag-#{language_flag(language_code)}", title: language_name(language_code)}
-              = foreign_name

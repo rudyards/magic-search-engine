@@ -1,4 +1,4 @@
-APP_NAME = "mtg.wtf"
+APP_NAME = "msem-instigator"
 
 # Load the Rails application.
 require_relative 'application'

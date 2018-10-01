@@ -1,16 +1,16 @@
 class ConditionIsScryland < Condition
   def search(db)
     names = [
-      "temple of abandon",
-      "temple of deceit",
-      "temple of enlightenment",
-      "temple of epiphany",
-      "temple of malady",
-      "temple of malice",
-      "temple of mystery",
-      "temple of plenty",
-      "temple of silence",
-      "temple of triumph",
+      "winterheath pass",
+      "chillroad pass",
+      "stonework gate pass",
+      "hanatun pass",
+      "sunset grove pass",
+      "ravenwood pass",
+      "sky’s reach pass",
+      "grimrot pass",
+      "glory bridge pass",
+      "frozen wilds pass",
     ]
 
     names
